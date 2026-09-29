@@ -5,3 +5,25 @@ g4.innerHTML=D.map((d,i)=>`<div class="c rv"><div class="top"><span class="ic">$
 g3.innerHTML=[['W','WordPress & Elementor','Custom themes','Custom sites, page builders and CMS solutions built to be easy to manage.'],['⚛','React.js & Next.js','Frontend','Component-driven interfaces and fast server-rendered sites.'],['JS','JavaScript, HTML, CSS, PHP','Core stack','Clean, semantic code with responsive, accessible layouts.'],['{}','ACF / CPT & APIs','Custom functionality','Custom fields, post types and API integrations.'],['⚡','Migration & Speed','Optimisation','Smooth site moves and performance tuning.']].map(d=>`<div class="c rv"><span class="ic">${d[0]}</span><h3>${d[1]}</h3><small>${d[2]}</small><p>${d[3]}</p></div>`).join('');
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;const t=e.target;t.classList.add('in');io.unobserve(t);if(t.dataset.n){const N=+t.dataset.n,s=performance.now();(function f(n){const p=Math.min((n-s)/1400,1);t.textContent=Math.round(N*(1-Math.pow(1-p,4)))+t.dataset.s;p<1&&requestAnimationFrame(f)})(s)}}),{threshold:.15});
 document.querySelectorAll('.rv,[data-n]').forEach(e=>io.observe(e));
+
+
+(function () {
+  var gate = document.getElementById('welcome-gate');
+  var btn = document.getElementById('enter-btn');
+
+  function speak() {
+    if (!('speechSynthesis' in window)) return;
+    var u = new SpeechSynthesisUtterance('Welcome to my website');
+    u.lang = 'en-US';
+    u.rate = 0.95;
+    u.pitch = 1;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(u);
+  }
+
+  btn.addEventListener('click', function () {
+    speak();
+    gate.classList.add('hide');
+    setTimeout(function () { gate.remove(); }, 600);
+  });
+})();
