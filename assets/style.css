@@ -45,6 +45,27 @@
   opacity:1;
   transform:none
 }
+
+
+
+
+#welcome-gate{
+  position:fixed;inset:0;z-index:9999;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;
+  background:#111;color:#fff;font-family:'DM Sans',sans-serif;
+  transition:opacity .5s ease;
+}
+#welcome-gate.hide{opacity:0;pointer-events:none}
+#welcome-gate button{
+  padding:14px 32px;border:0;border-radius:999px;
+  background:#fff;color:#111;font:700 16px 'DM Sans',sans-serif;cursor:pointer;
+}
+
+
+
+
+
+
   nav {
   position:sticky;
   top:0;
